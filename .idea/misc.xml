@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/drawable/background.xml" value="0.236" />
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/drawable/home_sections_bg.xml" value="0.24" />
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.24" />
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/font/adamina.xml" value="0.43703703703703706" />
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/layout/activity_main.xml" value="0.425" />
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/layout/activity_splash.xml" value="0.425" />
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/layout/fragment_home.xml" value="0.425" />
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/layout/fragment_splash.xml" value="0.425" />
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/layout/fragment_start_up.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/OnTime/app/src/main/res/menu/home_top_menu.xml" value="0.425" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

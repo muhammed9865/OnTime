@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.muhammed.ontime.fragments.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_startUpFragment"
+            app:destination="@id/startUpFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/startUpFragment"
+        android:name="com.muhammed.ontime.fragments.splash.StartUpFragment"
+        android:label="fragment_startup"
+        tools:layout="@layout/fragment_start_up"/>
+</navigation>
