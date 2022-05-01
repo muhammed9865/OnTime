@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="200">
+        <OnClick motion:targetId="@+id/add_new_btn" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/add_new_schedule"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_btn"
+            motion:layout_constraintEnd_toEndOf="@+id/add_new_btn"
+            motion:layout_constraintStart_toStartOf="@+id/add_new_btn" />
+
+        <Constraint
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:elevation="@dimen/_32sdp"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_schedule"
+            motion:layout_constraintEnd_toEndOf="@+id/add_new_schedule"
+            motion:layout_constraintStart_toStartOf="@+id/add_new_schedule"
+            motion:layout_constraintTop_toTopOf="@+id/add_new_schedule" />
+        <Constraint
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:alpha="0"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_schedule"
+            motion:layout_constraintEnd_toStartOf="@+id/add_new_schedule"
+            motion:layout_constraintTop_toTopOf="@+id/add_new_schedule" />
+        <Constraint
+            android:id="@+id/add_new_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/floating_button_default_margin"
+            android:layout_marginBottom="@dimen/floating_button_default_margin"
+            android:src="@drawable/ic_baseline_add_24"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+        <Constraint
+            android:id="@+id/add_new_note"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:visibility="invisible"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_btn"
+            motion:layout_constraintEnd_toEndOf="@+id/add_new_btn"
+            motion:layout_constraintStart_toStartOf="@+id/add_new_btn" />
+        <Constraint
+            android:id="@+id/textView4_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:alpha="0"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_note"
+            motion:layout_constraintEnd_toStartOf="@+id/add_new_note"
+            motion:layout_constraintTop_toTopOf="@+id/add_new_note" />
+        <Constraint
+            android:id="@+id/imageView_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_32sdp"
+            android:alpha="0"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_note"
+            motion:layout_constraintEnd_toEndOf="@+id/add_new_note"
+            motion:layout_constraintStart_toStartOf="@+id/add_new_note"
+            motion:layout_constraintTop_toTopOf="@+id/add_new_note" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            android:elevation="@dimen/_32sdp"
+            android:visibility="visible"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_schedule"
+            motion:layout_constraintEnd_toEndOf="@+id/add_new_schedule"
+            motion:layout_constraintStart_toStartOf="@+id/add_new_schedule"
+            motion:layout_constraintTop_toTopOf="@+id/add_new_schedule" />
+        <Constraint
+            android:id="@+id/add_new_schedule"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:alpha="1"
+            android:visibility="visible"
+            motion:layout_constraintBottom_toTopOf="@+id/add_new_btn"
+            motion:layout_constraintEnd_toEndOf="@+id/add_new_btn"
+            motion:layout_constraintStart_toStartOf="@+id/add_new_btn" />
+        <Constraint
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:alpha="1"
+            android:visibility="visible"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_schedule"
+            motion:layout_constraintEnd_toStartOf="@+id/add_new_schedule"
+            motion:layout_constraintTop_toTopOf="@+id/add_new_schedule" />
+        <Constraint
+            android:id="@+id/add_new_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/floating_button_default_margin"
+            android:layout_marginBottom="@dimen/floating_button_default_margin"
+            android:src="@drawable/ic_baseline_close_24"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+
+        <Constraint
+            android:id="@+id/add_new_note"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:alpha="1"
+            android:visibility="visible"
+            motion:layout_constraintBottom_toTopOf="@+id/add_new_schedule"
+            motion:layout_constraintEnd_toEndOf="@+id/add_new_btn"
+            motion:layout_constraintStart_toStartOf="@+id/add_new_btn" />
+        <Constraint
+            android:id="@+id/imageView_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_32sdp"
+            android:visibility="visible"
+            android:alpha="1"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_note"
+            motion:layout_constraintEnd_toEndOf="@+id/add_new_note"
+            motion:layout_constraintStart_toStartOf="@+id/add_new_note"
+            motion:layout_constraintTop_toTopOf="@+id/add_new_note" />
+        <Constraint
+            android:id="@+id/textView4_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:visibility="visible"
+            android:alpha="1"
+            motion:layout_constraintBottom_toBottomOf="@+id/add_new_note"
+            motion:layout_constraintEnd_toStartOf="@+id/add_new_note"
+            motion:layout_constraintTop_toTopOf="@+id/add_new_note" />
+
+    </ConstraintSet>
+</MotionScene>

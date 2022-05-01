@@ -8,4 +8,9 @@
     <string name="notification">Notification</string>
     <string name="schedule">Schedule</string>
     <string name="note">Note</string>
+    <string name="search_notes">Search Notes</string>
+    <string name="pin">Pin</string>
+    <string name="note_settings">Note Settings</string>
+    <string name="title">Title</string>
+    <string name="text">Your text</string>
 </resources>

@@ -7,15 +7,33 @@
     android:background="@drawable/background"
     tools:context=".fragments.NotesFragment">
 
-    <TextView
-        style="@style/TopbarTitleText"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/notes_search_view"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Implement Notes List"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/home_sections_bg"
+        android:backgroundTint="#CCC2FE"
+        android:padding="@dimen/_8sdp"
+        android:gravity="start"
+        android:inputType="textPersonName"
+        android:hint="@string/search_notes"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:drawablePadding="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/list_item_note"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="@+id/notes_search_view"
+        app:layout_constraintStart_toStartOf="@+id/notes_search_view"
+        app:layout_constraintTop_toBottomOf="@+id/notes_search_view" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

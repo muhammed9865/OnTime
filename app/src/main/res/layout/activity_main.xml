@@ -3,10 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
+        app:layoutDescription="@xml/activity_main_xml_constraintlayout_scene"
         tools:context=".activity.MainActivity">
 
         <androidx.appcompat.widget.Toolbar
@@ -69,5 +71,84 @@
             app:layout_constraintTop_toBottomOf="@+id/dest_radio_group"
             app:navGraph="@navigation/main_graph" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_new_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:src="@drawable/ic_baseline_add_24"
+            app:icon="@drawable/ic_baseline_add_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_new_schedule"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:layout_constraintBottom_toTopOf="@+id/add_new_btn"
+            app:layout_constraintEnd_toEndOf="@+id/add_new_btn"
+            app:layout_constraintStart_toStartOf="@+id/add_new_btn" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="@dimen/_32sdp"
+            android:src="@drawable/ic_baseline_schedule_24"
+            app:layout_constraintBottom_toBottomOf="@+id/add_new_schedule"
+            app:layout_constraintEnd_toEndOf="@+id/add_new_schedule"
+            app:layout_constraintStart_toStartOf="@+id/add_new_schedule"
+            app:layout_constraintTop_toTopOf="@+id/add_new_schedule" />
+
+        <TextView
+            android:id="@+id/textView4_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/note"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_new_note"
+            app:layout_constraintEnd_toStartOf="@+id/add_new_note"
+            app:layout_constraintTop_toTopOf="@+id/add_new_note" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_new_note"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:layout_constraintBottom_toTopOf="@+id/add_new_btn"
+            app:layout_constraintEnd_toEndOf="@+id/add_new_btn"
+            app:layout_constraintStart_toStartOf="@+id/add_new_btn" />
+
+        <ImageView
+            android:id="@+id/imageView_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="@dimen/_32sdp"
+            android:src="@drawable/ic_baseline_note_24"
+            app:layout_constraintBottom_toBottomOf="@+id/add_new_note"
+            app:layout_constraintEnd_toEndOf="@+id/add_new_note"
+            app:layout_constraintStart_toStartOf="@+id/add_new_note"
+            app:layout_constraintTop_toTopOf="@+id/add_new_note" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/schedule"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_new_schedule"
+            app:layout_constraintEnd_toStartOf="@+id/add_new_schedule"
+            app:layout_constraintTop_toTopOf="@+id/add_new_schedule" />
+
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>
