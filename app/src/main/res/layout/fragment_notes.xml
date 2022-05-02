@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".fragments.NotesFragment">
+<layout>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/notes_search_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/home_sections_bg"
-        android:backgroundTint="#CCC2FE"
-        android:padding="@dimen/_8sdp"
-        android:gravity="start"
-        android:inputType="textPersonName"
-        android:hint="@string/search_notes"
-        android:drawableStart="@drawable/ic_baseline_search_24"
-        android:drawablePadding="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".fragments.NotesFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/list_item_note"
-        android:layout_marginTop="@dimen/_16sdp"
-        app:layout_constraintEnd_toEndOf="@+id/notes_search_view"
-        app:layout_constraintStart_toStartOf="@+id/notes_search_view"
-        app:layout_constraintTop_toBottomOf="@+id/notes_search_view" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/notes_search_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/home_sections_bg"
+            android:backgroundTint="#CCC2FE"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:drawablePadding="@dimen/_8sdp"
+            android:gravity="start"
+            android:hint="@string/search_notes"
+            android:inputType="textShortMessage"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notes_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="@+id/notes_search_view"
+            app:layout_constraintStart_toStartOf="@+id/notes_search_view"
+            app:layout_constraintTop_toBottomOf="@+id/notes_search_view"
+            tools:listitem="@layout/list_item_note" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -63,6 +63,16 @@
             android:orientation="vertical"
             app:layout_constraintGuide_begin="404dp" />
 
+        <ImageView
+            android:id="@+id/pin_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:rotation="29"
+            app:layout_constraintBottom_toBottomOf="@+id/note_addition_toolbar"
+            app:layout_constraintEnd_toEndOf="@+id/note_addition_toolbar"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

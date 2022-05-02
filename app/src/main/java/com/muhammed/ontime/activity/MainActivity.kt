@@ -3,13 +3,16 @@ package com.muhammed.ontime.activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import com.muhammed.ontime.R
 import com.muhammed.ontime.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(LayoutInflater.from(this))
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.mainToolbar)
 
         // Handling the Destinations Radio group changes listener.
-        binding.destRadioGroup.setOnCheckedChangeListener { radioGroup, i ->
+        binding.destRadioGroup.setOnCheckedChangeListener { radioGroup, _ ->
             when (radioGroup.checkedRadioButtonId) {
                 binding.scheduleSectionRb.id -> {
                     navController.navigate(R.id.action_notesFragment_to_schedulesFragment)
@@ -48,8 +51,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.home_top_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     private fun handleCreateNewNote() {
-        val intent = Intent(this, AddNoteActivity::class.java)
+        val intent = Intent(this, NoteDetailsActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
         startActivity(intent)
 
