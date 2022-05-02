@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -29,14 +30,12 @@ class NotesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNotesBinding.inflate(inflater, container, false)
-
         binding.notesRv.apply {
             adapter = notesAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
 
         loadNotes()
-
         // On Note click listener.
         notesAdapter.setOnNoteClickListener { id ->
             val intent = Intent(requireContext(), NoteDetailsActivity::class.java)
@@ -50,7 +49,11 @@ class NotesFragment : Fragment() {
             }
         }
 
-        // Inflate the layout for this fragment
+        binding.notesSearchView.doOnTextChanged { text, _, _, _ ->
+            text?.let { viewModel.searchNotesByTitle(it.toString()) }
+        }
+
+
         return binding.root
     }
 
