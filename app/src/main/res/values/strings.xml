@@ -13,4 +13,12 @@
     <string name="note_settings">Note Settings</string>
     <string name="title">Title</string>
     <string name="text">Your text</string>
+    <string name="enter_title">Title</string>
+    <string name="save_schedule">save schedule</string>
+    <string name="full_day">Full Day</string>
+    <string name="start_from">Start from</string>
+    <string name="finish">Finish</string>
+    <string name="repeat">Repeat</string>
+    <string name="reminder">Reminder</string>
+    <string name="place">Place</string>
 </resources>

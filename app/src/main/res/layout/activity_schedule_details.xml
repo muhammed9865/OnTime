@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.ScheduleDetailsActivity"
+        android:background="@drawable/background">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/schedule_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/save_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/schedule_toolbar"
+            app:layout_constraintEnd_toEndOf="@+id/schedule_toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_done_24"
+            android:contentDescription="@string/save_schedule" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/is_finished_cb"
+            android:layout_width="wrap_content"
+            app:buttonTint="@color/white"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/schedule_toolbar"
+            app:layout_constraintEnd_toStartOf="@+id/save_schedule"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="17dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/schedule"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/schedule_toolbar" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/schedule_title"
+            style="@style/ScheduleTextField"
+            android:hint="@string/enter_title"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="384dp" />
+
+        <!-- Full Day Switch -->
+        <TextView
+            android:id="@+id/textView6"
+            android:text="@string/full_day"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/schedule_title"
+            style="@style/scheduleTextOptions" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/is_fullday_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+        <!-- Start from -->
+        <TextView
+            android:id="@+id/textView7"
+            style="@style/scheduleTextOptions"
+            android:text="@string/start_from"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <LinearLayout
+            android:id="@+id/start_from_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="@+id/textView7">
+
+            <TextView
+                android:id="@+id/start_from_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#828282"
+                android:fontFamily="@font/nunito_sans"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_10ssp"
+                tools:text="Mon, 20 Sep 2021 10:00AM" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tint="#828282"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+        </LinearLayout>
+
+        <!-- Finish -->
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/scheduleTextOptions"
+            android:text="@string/finish"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <LinearLayout
+            android:id="@+id/finish_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="@+id/textView8">
+
+            <TextView
+                android:id="@+id/finish_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nunito_sans"
+                android:textColor="#828282"
+                android:textSize="@dimen/_10ssp"
+                tools:text="Mon, 20 Sep 2022 10:00AM" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                app:tint="#828282" />
+        </LinearLayout>
+
+        <!-- Repeat -->
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/scheduleTextOptions"
+            android:text="@string/repeat"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <LinearLayout
+            android:id="@+id/repeat_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="@+id/textView9">
+
+            <TextView
+                android:id="@+id/repeat_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nunito_sans"
+                android:textColor="#828282"
+                android:textSize="@dimen/_10ssp"
+                tools:text="None" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                app:tint="#828282" />
+        </LinearLayout>
+
+        <!-- Reminder -->
+        <TextView
+            android:id="@+id/textView10"
+            style="@style/scheduleTextOptions"
+            android:text="@string/reminder"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <LinearLayout
+            android:id="@+id/reminder_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="@+id/textView10">
+
+            <TextView
+                android:id="@+id/reminder_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nunito_sans"
+                android:textColor="#828282"
+                android:textSize="@dimen/_10ssp"
+                tools:text="Before 5 Minutes" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                app:tint="#828282" />
+        </LinearLayout>
+
+
+        <!-- Place TextField -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/schedule_place"
+            android:hint="@string/place"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            style="@style/ScheduleTextField" />
+
+        <!-- Note TextField -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/schedule_note"
+            style="@style/ScheduleTextField"
+            android:hint="@string/note"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/schedule_place" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

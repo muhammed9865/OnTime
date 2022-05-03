@@ -1,5 +1,6 @@
 package com.muhammed.ontime
 
+import android.widget.DatePicker
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -9,4 +10,6 @@ object Utils {
         val date = Date(milli)
         return sdf.format(date)
     }
+
+    fun DatePicker.convertToString(): String = "$dayOfMonth $month-$year"
 }

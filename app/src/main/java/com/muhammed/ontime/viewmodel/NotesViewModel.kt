@@ -17,7 +17,7 @@ class NotesViewModel @Inject constructor(private val repository: NotesRepository
 
     fun loadNotes() {
         viewModelScope.launch {
-            _notesList.value = repository.getAllNotes().sortedByDescending { it.isPinned }
+            _notesList.value = repository.getAllNotes().sortByPin()
         }
     }
 
@@ -25,9 +25,11 @@ class NotesViewModel @Inject constructor(private val repository: NotesRepository
         viewModelScope.launch {
             repository.searchNoteByTitle(title).also {
                 if (it.isNotEmpty()) {
-                    _notesList.value = it
+                    _notesList.value = it.sortByPin()
                 }
             }
         }
     }
+
+    private fun List<Note>.sortByPin(): List<Note> = this.sortedByDescending { it.isPinned }
 }

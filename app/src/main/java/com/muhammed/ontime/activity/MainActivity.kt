@@ -7,7 +7,6 @@ import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.google.android.material.snackbar.Snackbar
 import com.muhammed.ontime.R
 import com.muhammed.ontime.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,8 +63,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleCreateNewSchedule() {
-        Snackbar.make(binding.root, "Schedule", Snackbar.LENGTH_LONG).show()
-        // Todo implement
+        val intent = Intent(this, ScheduleDetailsActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        startActivity(intent)
     }
 
 

@@ -17,7 +17,7 @@
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:background="@drawable/home_sections_bg"
-            android:backgroundTint="#CCC2FE"
+            android:backgroundTint="@color/textfield_bg_color"
             android:drawableStart="@drawable/ic_baseline_search_24"
             android:drawablePadding="@dimen/_8sdp"
             android:gravity="start"

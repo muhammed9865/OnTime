@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="colorControlNormal">@color/white</item>
         <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TopbarTitleText">

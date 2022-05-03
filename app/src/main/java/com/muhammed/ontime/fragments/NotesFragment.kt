@@ -36,6 +36,7 @@ class NotesFragment : Fragment() {
         }
 
         loadNotes()
+
         // On Note click listener.
         notesAdapter.setOnNoteClickListener { id ->
             val intent = Intent(requireContext(), NoteDetailsActivity::class.java)
@@ -60,7 +61,7 @@ class NotesFragment : Fragment() {
     private fun loadNotes() = viewModel.loadNotes()
 
     private val startNoteDetailsActivity =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             lifecycleScope.launch {
                 loadNotes()
             }
