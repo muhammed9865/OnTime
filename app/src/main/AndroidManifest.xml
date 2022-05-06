@@ -12,7 +12,8 @@
         android:theme="@style/Theme.OnTime">
         <activity
             android:name=".activity.ScheduleDetailsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/DatePickerDialog" />
         <activity
             android:name=".activity.NoteDetailsActivity"
             android:exported="false" />

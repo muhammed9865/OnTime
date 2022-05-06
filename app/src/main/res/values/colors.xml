@@ -13,4 +13,5 @@
     <color name="secondaryColor">#0E061D</color>
     <color name="accentColor">#D55562</color>
     <color name="textfield_bg_color">#CCC2FE</color>
+    <color name="hint_color">#828282</color>
 </resources>

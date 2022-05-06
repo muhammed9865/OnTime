@@ -21,4 +21,14 @@
     <string name="repeat">Repeat</string>
     <string name="reminder">Reminder</string>
     <string name="place">Place</string>
+    <string name="save">Save</string>
+    <string name="pick_date">Pick a Date</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+
+    <string-array name="reminders">
+        <item>On Time</item>
+        <item>Before 5 Minutes</item>
+        <item>Before 10 Minutes</item>
+    </string-array>
 </resources>

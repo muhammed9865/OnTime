@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.muhammed.ontime.datasource.LocalDatabase
 import com.muhammed.ontime.datasource.NotesDao
-import com.muhammed.ontime.datasource.ScheduleDao
+import com.muhammed.ontime.datasource.dao.ScheduleDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,8 @@ class DatabaseModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): LocalDatabase {
-        return Room.databaseBuilder(context, LocalDatabase::class.java, "ontime").build()
+        return Room.databaseBuilder(context, LocalDatabase::class.java, "ontime")
+            .fallbackToDestructiveMigration().build()
     }
 
     @Provides

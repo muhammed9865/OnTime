@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
@@ -143,13 +144,28 @@
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/reminder"
-            style="@style/ScheduleOptionsSelector"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/hint_color"
+            app:boxStrokeWidth="0dp"
+            app:endIconTint="@color/hint_color"
             app:layout_constraintBottom_toBottomOf="@+id/textView10"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toTopOf="@+id/textView10"
-            tools:text="Before 5 Minutes" />
+            tools:text="Before 5 Minutes">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/reminder_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:enabled="false"
+                android:inputType="none"
+                android:textColor="@color/hint_color" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Place TextField -->
         <com.google.android.material.textfield.TextInputEditText
@@ -158,7 +174,7 @@
             android:hint="@string/place"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            app:layout_constraintTop_toBottomOf="@+id/reminder" />
 
         <!-- Note TextField -->
         <com.google.android.material.textfield.TextInputEditText

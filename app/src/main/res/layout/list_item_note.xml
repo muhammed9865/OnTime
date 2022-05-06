@@ -43,7 +43,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/note_title"
                 app:layout_constraintTop_toBottomOf="@+id/note_title"
-                tools:text="TextViewasdasdasdasdasdasasdasdasdasd" />
+                tools:text="TextViewasdasdasdasdasdasasdasdasdasdasdasdasasdasdasdas" />
 
             <TextView
                 android:id="@+id/note_date"

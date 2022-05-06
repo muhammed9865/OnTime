@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonsColor">
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_marginTop="8dp"
+            android:background="#aaa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/final_date_text"
+            style="@style/scheduleTextOptions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/date_picker_dialog_bg"
+            android:backgroundTint="#30eeeeee"
+            android:gravity="center"
+            android:textColor="#eaeaea"
+            android:text="@string/date"
+            app:layout_constraintEnd_toStartOf="@+id/guideline8"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="39dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="364dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/date_pick_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:padding="@dimen/_12sdp"
+            android:text="@string/pick_date"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            app:backgroundTint="@color/primaryColor"
+            app:cornerRadius="@dimen/_10sdp"
+            app:drawableEndCompat="@drawable/ic_baseline_calendar_month_24"
+            app:drawableTint="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/guideline8"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toBottomOf="@+id/final_date_text" />
+
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="0dp"
+            app:trp_startTime="0"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:numbersTextColor="@color/primaryColor"
+            app:layout_constraintEnd_toStartOf="@+id/guideline8"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toBottomOf="@+id/date_pick_btn" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="63dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
