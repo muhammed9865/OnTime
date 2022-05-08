@@ -18,4 +18,5 @@ data class Schedule(
     var isFullDay: Boolean = false,
     var isFinished: Boolean = false,
     var reminder: Long = 0,
+    var dayTime: Long
 )

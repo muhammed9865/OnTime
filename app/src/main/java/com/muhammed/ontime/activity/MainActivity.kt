@@ -4,11 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.muhammed.ontime.R
 import com.muhammed.ontime.databinding.ActivityMainBinding
+import com.muhammed.ontime.fragments.NotificationsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,11 +31,11 @@ class MainActivity : AppCompatActivity() {
         binding.destRadioGroup.setOnCheckedChangeListener { radioGroup, _ ->
             when (radioGroup.checkedRadioButtonId) {
                 binding.scheduleSectionRb.id -> {
-                    navController.navigate(R.id.action_notesFragment_to_schedulesFragment)
+                    navController.navigate(R.id.schedulesFragment)
                 }
 
                 binding.noteSectionRb.id -> {
-                    navController.navigate(R.id.action_schedulesFragment_to_notesFragment)
+                    navController.navigate(R.id.notesFragment)
                 }
             }
         }
@@ -53,6 +55,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.home_top_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.notifications -> {
+                NotificationsFragment().show(supportFragmentManager, null)
+                true
+            }
+
+            else -> false
+        }
     }
 
     private fun handleCreateNewNote() {

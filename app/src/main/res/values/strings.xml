@@ -25,6 +25,7 @@
     <string name="pick_date">Pick a Date</string>
     <string name="time">Time</string>
     <string name="date">Date</string>
+    <string name="empty_notifications_list">No Upcoming Schedules</string>
 
     <string-array name="reminders">
         <item>On Time</item>

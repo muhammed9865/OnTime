@@ -3,7 +3,7 @@ package com.muhammed.ontime.di
 import android.content.Context
 import androidx.room.Room
 import com.muhammed.ontime.datasource.LocalDatabase
-import com.muhammed.ontime.datasource.NotesDao
+import com.muhammed.ontime.datasource.dao.NotesDao
 import com.muhammed.ontime.datasource.dao.ScheduleDao
 import dagger.Module
 import dagger.Provides

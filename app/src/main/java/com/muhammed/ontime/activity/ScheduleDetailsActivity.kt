@@ -1,6 +1,7 @@
 package com.muhammed.ontime.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkManager
 import com.muhammed.ontime.R
 import com.muhammed.ontime.Utils
-import com.muhammed.ontime.Utils.showDropdown
 import com.muhammed.ontime.databinding.ActivityScheduleDetailsBinding
 import com.muhammed.ontime.fragments.DatePickerDialog
 import com.muhammed.ontime.viewmodel.ScheduleDetailsViewModel
@@ -70,9 +70,11 @@ class ScheduleDetailsActivity : AppCompatActivity() {
                     }
                     show(supportFragmentManager, null)
                 }
+
             }
+            prepareReminderMenu()
         }
-        prepareReminderMenu()
+
     }
 
     override fun onResume() {
@@ -82,8 +84,9 @@ class ScheduleDetailsActivity : AppCompatActivity() {
 
     private fun prepareReminderMenu() {
         val options = resources.getStringArray(R.array.reminders)
-        val arrAdapter = ArrayAdapter(this, R.layout.dropdown_item, options)
-        binding.reminderOptions.showDropdown(arrAdapter)
+        val arrAdapter = ArrayAdapter(this, R.layout.dropdown_item, options.toList())
+        Log.d("SchedulesActivity", "prepareReminderMenu: ${arrAdapter.count}")
+        binding.reminderOptions.setAdapter(arrAdapter)
         binding.reminderOptions.doOnTextChanged { text, _, _, _ ->
             viewModel.setReminder(text.toString(), options)
         }
@@ -99,9 +102,7 @@ class ScheduleDetailsActivity : AppCompatActivity() {
                     scheduleNote.setText(it.note)
                     isFinishedCb.isChecked = it.isFinished
                     isFulldaySwitch.isActivated = it.isFullDay
-                    viewModel.getReminderAsString(resources)?.let {
-                        binding.reminderOptions.setText(it)
-                    }
+
 
                     if (it.startFrom > -1) startFrom.text = Utils.milliToDateAsString(it.startFrom)
                     if (it.finish > -1) finish.text = Utils.milliToDateAsString(it.finish)

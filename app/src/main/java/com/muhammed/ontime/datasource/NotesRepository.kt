@@ -1,5 +1,6 @@
 package com.muhammed.ontime.datasource
 
+import com.muhammed.ontime.datasource.dao.NotesDao
 import com.muhammed.ontime.pojo.Note
 import javax.inject.Inject
 import javax.inject.Singleton

@@ -23,7 +23,7 @@ class ScheduleDetailsViewModel @Inject constructor(
     private val schedulesRepository: SchedulesRepository,
 ) :
     ViewModel() {
-    private val _schedule = MutableStateFlow(Schedule())
+    private val _schedule = MutableStateFlow(Schedule(dayTime = -1))
     val schedule: StateFlow<Schedule> = _schedule
 
     fun setTitle(title: String?) {

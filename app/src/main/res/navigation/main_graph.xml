@@ -19,9 +19,13 @@
         android:id="@+id/notesFragment"
         android:name="com.muhammed.ontime.fragments.NotesFragment"
         android:label="fragment_notes"
-        tools:layout="@layout/fragment_notes" >
+        tools:layout="@layout/fragment_notes">
         <action
             android:id="@+id/action_notesFragment_to_schedulesFragment"
             app:destination="@id/schedulesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.muhammed.ontime.fragments.NotificationsFragment"
+        android:label="NotificationsFragment" />
 </navigation>

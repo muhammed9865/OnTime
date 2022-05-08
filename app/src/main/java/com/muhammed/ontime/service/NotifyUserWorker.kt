@@ -13,7 +13,7 @@ class NotifyScheduleWorker(private val context: Context, workerParameters: Worke
     Worker(context, workerParameters) {
     override fun doWork(): Result {
         val title = inputData.getString(Constants.SCHEDULE_TITLE) ?: "On.time"
-        val place = inputData.getString(Constants.SCHEDULE_PLACE) ?: "Damas"
+        val place = inputData.getString(Constants.SCHEDULE_PLACE) ?: "None"
         val note = inputData.getString(Constants.SCHEDULE_NOTE) ?: "None"
 
         val notification = createScheduleNotification(title, place, note)
@@ -32,7 +32,6 @@ class NotifyScheduleWorker(private val context: Context, workerParameters: Worke
         NotificationCompat.Builder(context, Constants.CHANNEL_ID)
             .setContentTitle("$scheduleTitle is Now!")
             .setContentText("Head to $place\n")
-            .setSubText("Notes: $note")
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
 }

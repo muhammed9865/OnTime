@@ -157,7 +157,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView10"
             tools:text="Before 5 Minutes">
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            <AutoCompleteTextView
                 android:id="@+id/reminder_options"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
