@@ -16,7 +16,6 @@ import com.muhammed.ontime.databinding.FragmentSchedulesBinding
 import com.muhammed.ontime.viewmodel.SchedulesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.util.*
 
 @AndroidEntryPoint
 class SchedulesFragment : Fragment() {
@@ -34,13 +33,14 @@ class SchedulesFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.daysWithSchedules.collect {
                 mAdapter.submitList(it)
+                binding.emptySchedulesText.visibility =
+                    if (it.isEmpty()) View.VISIBLE else View.GONE
             }
         }
 
-        val cal = Calendar.getInstance()
-
-
-
+        mAdapter.setOnScheduleFinishListener { _, schedule ->
+            viewModel.updateSchedule(schedule)
+        }
 
         return binding.root
     }
@@ -54,6 +54,11 @@ class SchedulesFragment : Fragment() {
             adapter = mAdapter
             setLayoutManager(layoutManager)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadDaysWithSchedules()
     }
 
     private fun doOnCalendarDateChange(datePicker: DatePicker) {

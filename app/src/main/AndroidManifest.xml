@@ -8,15 +8,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/Theme.OnTime">
         <activity
             android:name=".activity.ScheduleDetailsActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/DatePickerDialog" />
         <activity
             android:name=".activity.NoteDetailsActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="false" />

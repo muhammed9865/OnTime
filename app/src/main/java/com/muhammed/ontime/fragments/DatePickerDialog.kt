@@ -1,6 +1,7 @@
 package com.muhammed.ontime.fragments
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,16 +16,22 @@ import kotlin.time.Duration
 import kotlin.time.DurationUnit
 import kotlin.time.ExperimentalTime
 
-class DatePickerDialog : BottomSheetDialogFragment() {
+class DatePickerDialog(private val mContext: Context) : BottomSheetDialogFragment() {
+
     private val binding: DatePickerDialogBinding by lazy {
         DatePickerDialogBinding.inflate(
-            LayoutInflater.from(requireContext())
+            LayoutInflater.from(mContext)
         )
     }
+    private lateinit var dpd: DatePickerDialog
     private var onDateChanged: ((millis: Long) -> Unit)? = null
     private var time = 0L
     private var date = 0L
     private var totalMillis = 0L
+
+    init {
+        initializeDatePicker(mContext)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +40,7 @@ class DatePickerDialog : BottomSheetDialogFragment() {
     ): View {
 
         binding.datePickBtn.setOnClickListener {
-            onDateChangedListener()
+            dpd.show()
         }
 
         onTimeChangedListener()
@@ -41,12 +48,13 @@ class DatePickerDialog : BottomSheetDialogFragment() {
         return binding.root
     }
 
+
     override fun getTheme(): Int = R.style.CustomBottomSheetDialog
 
-    private fun onDateChangedListener() {
+    private fun initializeDatePicker(context: Context) {
         val cal = Calendar.getInstance()
-        val dpd = DatePickerDialog(
-            requireContext(),
+        dpd = DatePickerDialog(
+            context,
             { datePicker, p1, p2, p3 ->
                 cal.apply {
                     set(Calendar.YEAR, datePicker.year)
@@ -63,12 +71,23 @@ class DatePickerDialog : BottomSheetDialogFragment() {
             cal[Calendar.YEAR], cal[Calendar.MONTH], cal[Calendar.DAY_OF_MONTH]
         )
         dpd.datePicker.minDate = System.currentTimeMillis()
-        dpd.show()
+
     }
 
     fun setOnDateChangedListener(onDateChange: (millis: Long) -> Unit) {
         this.onDateChanged = onDateChange
     }
+
+    fun setMinimumDate(timeInMillis: Long) {
+        dpd.datePicker.minDate = if (timeInMillis > 0) timeInMillis else System.currentTimeMillis()
+        val cal = Calendar.getInstance()
+        cal.timeInMillis = timeInMillis
+        binding.timePicker.apply {
+            hour = cal[Calendar.HOUR_OF_DAY]
+            minute = cal[Calendar.MINUTE]
+        }
+    }
+
 
     @OptIn(ExperimentalTime::class)
     private fun onTimeChangedListener() {
@@ -84,7 +103,6 @@ class DatePickerDialog : BottomSheetDialogFragment() {
                 DurationUnit.MILLISECONDS
             )
             updateTime((hours + minutes).toLong())
-
             onDateChanged?.let { it(totalMillis) }
         }
     }

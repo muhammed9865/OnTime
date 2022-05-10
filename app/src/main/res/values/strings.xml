@@ -26,6 +26,7 @@
     <string name="time">Time</string>
     <string name="date">Date</string>
     <string name="empty_notifications_list">No Upcoming Schedules</string>
+    <string name="empty_schedule_list">You have nothing schedule</string>
 
     <string-array name="reminders">
         <item>On Time</item>

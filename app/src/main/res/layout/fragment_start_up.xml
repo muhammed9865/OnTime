@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
@@ -14,7 +14,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
-
             android:text="@string/app_name"
             android:textColor="@color/white"
             android:textSize="@dimen/_48ssp"
@@ -52,6 +51,17 @@
             app:layout_constraintEnd_toEndOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/splash_skip_startup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Don't show again"
+            android:fontFamily="@font/nunito_sans"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/start_up_btn"
+            app:layout_constraintStart_toStartOf="@+id/start_up_btn"
+            app:layout_constraintTop_toBottomOf="@+id/start_up_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

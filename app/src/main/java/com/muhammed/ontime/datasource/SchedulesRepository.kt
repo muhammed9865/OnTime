@@ -9,12 +9,11 @@ import javax.inject.Inject
 
 class SchedulesRepository @Inject constructor(private val schedulesDao: ScheduleDao) {
     suspend fun saveSchedule(schedule: Schedule) {
-        if (validateSchedule(schedule)) {
-            val cal = Calendar.getInstance()
+        if (isScheduleValid(schedule)) {
+            val cal = Calendar.getInstance(Locale.getDefault())
             cal.timeInMillis = schedule.startFrom
             cal.apply {
                 set(Calendar.HOUR_OF_DAY, 0)
-                set(Calendar.HOUR, 0)
                 set(Calendar.MINUTE, 0)
                 set(Calendar.SECOND, 0)
                 set(Calendar.MILLISECOND, 0)
@@ -27,13 +26,15 @@ class SchedulesRepository @Inject constructor(private val schedulesDao: Schedule
         }
     }
 
+    suspend fun updateSchedule(schedule: Schedule) = schedulesDao.updateSchedule(schedule)
+
     suspend fun getAllDaysWithSchedules(): List<DayWithSchedules> =
         schedulesDao.fetchDaysWithSchedules()
 
     suspend fun getAllActiveSchedules(): List<Schedule> = schedulesDao.fetchActiveSchedules()
 
-    private fun validateSchedule(schedule: Schedule): Boolean {
-        return schedule.title.isNotEmpty() || schedule.startFrom != -1L || schedule.finish != -1L
+    private fun isScheduleValid(schedule: Schedule): Boolean {
+        return schedule.title.isNotEmpty() && schedule.startFrom != -1L && schedule.finish != -1L
     }
 
 

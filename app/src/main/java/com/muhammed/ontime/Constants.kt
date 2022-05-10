@@ -6,4 +6,5 @@ object Constants {
     const val SCHEDULE_TITLE = "title"
     const val SCHEDULE_PLACE = "place"
     const val SCHEDULE_NOTE = "note"
+    const val SKIP_STARTUP = "skip_startup"
 }

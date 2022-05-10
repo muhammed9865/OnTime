@@ -51,7 +51,10 @@ class ScheduleDetailsActivity : AppCompatActivity() {
             }
 
             startFrom.setOnClickListener {
-                val dateDialog = DatePickerDialog()
+                val dateDialog = DatePickerDialog(this@ScheduleDetailsActivity).also {
+                    it.setMinimumDate(System.currentTimeMillis())
+                }
+
                 with(dateDialog) {
                     setOnDateChangedListener {
                         binding.startFrom.text = Utils.milliToDateAsString(it)
@@ -61,7 +64,9 @@ class ScheduleDetailsActivity : AppCompatActivity() {
                 }
             }
             finish.setOnClickListener {
-                val dateDialog = DatePickerDialog()
+                val dateDialog = DatePickerDialog(this@ScheduleDetailsActivity)
+                dateDialog.setMinimumDate(viewModel.schedule.value.startFrom)
+
                 with(dateDialog) {
                     setOnDateChangedListener {
                         binding.finish.text = Utils.milliToDateAsString(it)

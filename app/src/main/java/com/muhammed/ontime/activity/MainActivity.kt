@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -68,17 +69,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private val startActivity =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK) {
+                onResume()
+            }
+        }
+
+
     private fun handleCreateNewNote() {
         val intent = Intent(this, NoteDetailsActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
-        startActivity(intent)
+        startActivity.launch(intent)
 
     }
 
     private fun handleCreateNewSchedule() {
         val intent = Intent(this, ScheduleDetailsActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
-        startActivity(intent)
+        startActivity.launch(intent)
     }
 
 

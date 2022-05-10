@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.muhammed.ontime.databinding.ListItemNotificationScheduleBinding
+import com.muhammed.ontime.databinding.ListItemScheduleBinding
 import com.muhammed.ontime.pojo.Schedule
 import com.muhammed.ontime.viewholder.NotificationsScheduledViewHolder
+import com.muhammed.ontime.viewholder.ScheduleViewHolder
 
 class SchedulesAdapter(private val isForNotification: Boolean) :
     ListAdapter<Schedule, RecyclerView.ViewHolder>(ScheduleDiff()) {
@@ -19,18 +21,32 @@ class SchedulesAdapter(private val isForNotification: Boolean) :
         parent: ViewGroup,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        val binding = ListItemNotificationScheduleBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
-        return NotificationsScheduledViewHolder(binding)
+        return if (viewType == NOTIFICATION_VH) {
+            val binding = ListItemNotificationScheduleBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+            NotificationsScheduledViewHolder(binding)
+        } else {
+            val binding =
+                ListItemScheduleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ScheduleViewHolder(binding)
+        }
+
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is NotificationsScheduledViewHolder -> holder.bind(getItem(position))
+            is ScheduleViewHolder -> holder.bind(getItem(position), onFinish)
         }
+    }
+
+    private var onFinish: ((Boolean, Schedule) -> Unit)? = null
+
+    fun setOnScheduleFinishListener(onFinish: (isFinished: Boolean, schedule: Schedule) -> Unit) {
+        this.onFinish = onFinish
     }
 
     companion object {

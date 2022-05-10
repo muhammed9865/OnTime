@@ -17,7 +17,6 @@ import com.muhammed.ontime.adapter.NotesAdapter
 import com.muhammed.ontime.databinding.FragmentNotesBinding
 import com.muhammed.ontime.viewmodel.NotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -58,12 +57,15 @@ class NotesFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadNotes()
+    }
+
     private fun loadNotes() = viewModel.loadNotes()
 
     private val startNoteDetailsActivity =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            lifecycleScope.launch {
-                loadNotes()
-            }
+            loadNotes()
         }
 }

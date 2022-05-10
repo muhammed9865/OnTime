@@ -1,14 +1,14 @@
 package com.muhammed.ontime.fragments.splash
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.fragment.findNavController
-import com.muhammed.ontime.R
+import androidx.core.content.edit
+import androidx.fragment.app.Fragment
+import com.muhammed.ontime.Constants
 import com.muhammed.ontime.activity.MainActivity
 import com.muhammed.ontime.databinding.FragmentStartUpBinding
 
@@ -19,6 +19,12 @@ class StartUpFragment : Fragment() {
     ): View {
         val binding = FragmentStartUpBinding.inflate(inflater, container, false)
 
+        binding.splashSkipStartup.setOnCheckedChangeListener { compoundButton, b ->
+            if (binding.splashSkipStartup.isChecked) {
+                skipStartUp()
+            }
+        }
+
         binding.startUpBtn.setOnClickListener {
             val intent = Intent(requireContext(), MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
@@ -27,6 +33,14 @@ class StartUpFragment : Fragment() {
 
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    private fun skipStartUp() {
+        requireActivity().getPreferences(Context.MODE_PRIVATE)
+            .edit {
+                putBoolean(Constants.SKIP_STARTUP, true)
+                commit()
+            }
     }
 
 }

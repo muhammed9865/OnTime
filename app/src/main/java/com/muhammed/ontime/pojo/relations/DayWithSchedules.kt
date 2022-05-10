@@ -10,7 +10,7 @@ data class DayWithSchedules(
     val day: Day,
     @Relation(
         parentColumn = "time",
-        entityColumn = "dayTime"
+        entityColumn = "dayTime",
     )
     val schedules: List<Schedule>
 ) {

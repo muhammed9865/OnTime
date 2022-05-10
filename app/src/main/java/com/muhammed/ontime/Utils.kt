@@ -1,8 +1,5 @@
 package com.muhammed.ontime
 
-import android.text.TextUtils
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import android.widget.DatePicker
 import java.text.SimpleDateFormat
 import java.util.*
@@ -16,10 +13,10 @@ object Utils {
 
     fun DatePicker.convertToString(): String = "$dayOfMonth $month-$year"
 
-    fun AutoCompleteTextView.showDropdown(adapter: ArrayAdapter<String>?) {
-        if (!TextUtils.isEmpty(this.text.toString())) {
-            adapter?.filter?.filter(null)
-        }
-        setAdapter(adapter)
+    fun getHourFromMillisAsString(millis: Long): String {
+        val sdf = SimpleDateFormat("hh:mm a", Locale.ENGLISH)
+        val date = Date(millis)
+        return sdf.format(date)
     }
+
 }

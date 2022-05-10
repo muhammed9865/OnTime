@@ -14,4 +14,10 @@
     <color name="accentColor">#D55562</color>
     <color name="textfield_bg_color">#CCC2FE</color>
     <color name="hint_color">#828282</color>
+    <color name="schedule_underline_on">#C68AFF</color>
+    <color name="schedule_underline_off">#3C1F7B</color>
+    <color name="schedule_background_off">#241641</color>
+    <color name="schedule_background_on">#35215C</color>
+    <color name="schedule_text_off">#BDBDBD</color>
+    <color name="schedule_text_on">@color/white</color>
 </resources>

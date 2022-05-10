@@ -1,6 +1,7 @@
 package com.muhammed.ontime.viewmodel
 
 import android.content.res.Resources
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.work.Data
@@ -57,6 +58,10 @@ class ScheduleDetailsViewModel @Inject constructor(
             reminders[1] -> _setReminder(5 * minuteInMills)
             reminders[2] -> _setReminder(10 * minuteInMills)
         }
+        Log.d(
+            "ScheduleViewModel",
+            "setReminder: reminder: ${_schedule.value.reminder} calc: ${_calculateNotifyDelay()}"
+        )
     }
 
     fun getReminderAsString(resources: Resources): String? {
@@ -79,6 +84,7 @@ class ScheduleDetailsViewModel @Inject constructor(
                 .putString(Constants.SCHEDULE_NOTE, _schedule.value.note)
                 .build()
 
+
             val startRequest = OneTimeWorkRequest.Builder(NotifyScheduleWorker::class.java)
                 .setInputData(data)
                 .setInitialDelay(_calculateNotifyDelay(), TimeUnit.MILLISECONDS)
@@ -89,7 +95,7 @@ class ScheduleDetailsViewModel @Inject constructor(
     }
 
     private fun _calculateNotifyDelay(): Long =
-        (_schedule.value.startFrom.minus(System.currentTimeMillis())).minus(_schedule.value.reminder)
+        (_schedule.value.startFrom - System.currentTimeMillis()) - _schedule.value.reminder
 
     private fun _setReminder(millis: Long) {
         _schedule.value.reminder = millis

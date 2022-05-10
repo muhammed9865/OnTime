@@ -34,11 +34,14 @@
             android:id="@+id/day_schedules_rv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            tools:itemCount="2"
+            android:layout_marginStart="@dimen/_6sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/day_number"
             app:layout_constraintTop_toTopOf="@+id/day_number"
-            tools:listitem="@layout/list_item_notification_schedule" />
+            tools:listitem="@layout/list_item_schedule" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

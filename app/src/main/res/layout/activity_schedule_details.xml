@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="384dp" />
+            app:layout_constraintGuide_end="16dp" />
 
         <!-- Full Day Switch -->
         <TextView
@@ -120,21 +120,6 @@
             app:layout_constraintTop_toTopOf="@+id/textView8"
             tools:text="Mon, 20 Sep 2022 10:00AM" />
 
-        <!-- Repeat -->
-        <TextView
-            android:id="@+id/textView9"
-            style="@style/scheduleTextOptions"
-            android:text="@string/repeat"
-            app:layout_constraintStart_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-        <TextView
-            android:id="@+id/repeat_text"
-            style="@style/ScheduleOptionsSelector"
-            app:layout_constraintBottom_toBottomOf="@+id/textView9"
-            app:layout_constraintEnd_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toTopOf="@+id/textView9"
-            tools:text="None" />
 
         <!-- Reminder -->
         <TextView
@@ -142,7 +127,7 @@
             style="@style/scheduleTextOptions"
             android:text="@string/reminder"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/reminder"
@@ -152,6 +137,7 @@
             app:boxStrokeColor="@color/hint_color"
             app:boxStrokeWidth="0dp"
             app:endIconTint="@color/hint_color"
+            android:layout_marginEnd="-10dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView10"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toTopOf="@+id/textView10"

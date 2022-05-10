@@ -2,4 +2,5 @@
 <resources>
     <dimen name="floating_button_default_margin">@dimen/_8sdp</dimen>
     <dimen name="pin_icon_size">16dp</dimen>
+    <dimen name="schedule_list_item_details_text_margin_start">@dimen/_15sdp</dimen>
 </resources>

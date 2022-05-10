@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.muhammed.ontime.databinding.ListItemDayWithSchedulesBinding
+import com.muhammed.ontime.pojo.Schedule
 
 import com.muhammed.ontime.pojo.relations.DayWithSchedules
 import com.muhammed.ontime.viewholder.DayWithSchedulesViewHolder
@@ -24,8 +25,14 @@ class DaysWithSchedulesAdapter :
 
     override fun onBindViewHolder(holder: DayWithSchedulesViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item, onFinish)
         Log.d("DaysWithSchedules", "${item.day.day}\t${item.schedules}")
+    }
+
+    private var onFinish: ((Boolean, Schedule) -> Unit)? = null
+
+    fun setOnScheduleFinishListener(onFinish: (isFinished: Boolean, Schedule) -> Unit) {
+        this.onFinish = onFinish
     }
 
 

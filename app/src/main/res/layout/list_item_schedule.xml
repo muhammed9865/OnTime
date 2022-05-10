@@ -1,10 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="@dimen/_10sdp">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/schedule_card_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/schedule_background_on"
+            tools:background="@color/schedule_background_on"
+            android:paddingBottom="@dimen/_10sdp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
+
+            <TextView
+                android:id="@+id/schedule_title"
+                android:fontFamily="@font/nunito_sans_semibold"
+                tools:text="Anna's Meeting"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="@+id/guideline12"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/list_item_schedule_text" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/schedule_is_finished_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:buttonTint="@color/schedule_checked_button_color"
+                app:layout_constraintBottom_toBottomOf="@+id/schedule_title"
+                app:layout_constraintEnd_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toTopOf="@+id/schedule_title" />
+
+            <View
+                android:id="@+id/schedule_break_line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/schedule_underline_on"
+                app:layout_constraintEnd_toStartOf="@+id/guideline13"
+                app:layout_constraintStart_toStartOf="@+id/guideline12"
+                app:layout_constraintTop_toBottomOf="@+id/schedule_title" />
+
+            <TextView
+                android:id="@+id/textView17"
+                style="@style/list_item_schedule_text"
+                android:textSize="@dimen/_12ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@string/time"
+                app:layout_constraintStart_toStartOf="@+id/guideline12"
+                app:layout_constraintTop_toBottomOf="@+id/schedule_break_line" />
+
+            <TextView
+                android:id="@+id/schedule_time"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/schedule_list_item_details_text_margin_start"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans"
+                style="@style/list_item_schedule_text"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView17"
+                app:layout_constraintStart_toEndOf="@+id/textView17"
+                app:layout_constraintTop_toTopOf="@+id/textView17"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="08:00AM" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                style="@style/list_item_schedule_text"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@string/place"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="@+id/textView17"
+                app:layout_constraintStart_toStartOf="@+id/guideline12"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+            <TextView
+                android:id="@+id/schedule_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans"
+                android:layout_marginStart="@dimen/schedule_list_item_details_text_margin_start"
+                android:textSize="@dimen/_12ssp"
+                style="@style/list_item_schedule_text"
+                app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                app:layout_constraintStart_toEndOf="@+id/textView18"
+                app:layout_constraintTop_toTopOf="@+id/textView18"
+                tools:text="Anna's House" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/nunito_sans_bold"
+                style="@style/list_item_schedule_text"
+                android:text="@string/note"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline12"
+                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+            <TextView
+                android:id="@+id/schedule_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans"
+                android:layout_marginStart="@dimen/schedule_list_item_details_text_margin_start"
+                tools:text="Don't forget to give her a shit"
+                style="@style/list_item_schedule_text"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                app:layout_constraintStart_toEndOf="@+id/textView15"
+                app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 </layout>
