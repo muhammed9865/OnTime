@@ -14,6 +14,8 @@ On.time got you! You can now schedule your todo's and get notified 'On.time'.
 - StateFlow for reactive programming
 - Coroutines in general
 - Dagger Hilt for Dependency Injection
+- WorkManager
+- Notifications
 - Repository Pattern with MVVM
 - Room for Database management
 - Material Design
